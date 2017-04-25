@@ -19,8 +19,10 @@ import {
     NumberField,
     NumberInput,
     ReferenceManyField,
+    ReferenceArrayInput,
     Responsive,
     RichTextField,
+    SelectArrayInput,
     SelectField,
     SelectInput,
     Show,
@@ -132,6 +134,9 @@ export const PostEdit = ({ ...props }) => (
             </FormTab>
             <FormTab label="post.form.miscellaneous">
                 <TextInput source="password" type="password" />
+                <ReferenceArrayInput source="tags" reference="tags" allowEmpty>
+                    <SelectArrayInput optionText="name" />
+                </ReferenceArrayInput>
                 <DateInput source="published_at" />
                 <SelectInput source="category" choices={[
                     { name: 'Tech', id: 'tech' },
